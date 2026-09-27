@@ -1,0 +1,12 @@
+﻿missing_id,scope,missing_information,current_value,origin,how_to_obtain
+orders_2024,site,"Commandes, volumes et dates de livraison réels",,non_verifie,"Récupérer ERP ou formaliser commandes de démonstration, libellées synthétiques."
+routes,site,Gammes et dépendances entre équipements,,non_verifie,Interroger responsable méthodes; créer des gammes synthétiques distinctes seulement après arbitrage.
+cycle_start_stop,3 équipements : EPI_PumpStation1;EPI_PumpStation2;EPI_PickAndPlace,"Durées de cycle, mise en route et arrêt propres à EPI",,non_verifie,"Obtenir journaux de production et procédures locales, ou créer hypothèses de scénario explicites."
+site_schedule,site,Horaires d’équipes et autorisations de marche,,non_verifie,Obtenir calendrier d’exploitation et règles HSE du site.
+site_power_cap,site,Plafond de puissance autorisé et contrat de raccordement,,non_verifie,"Demander contrat, facture ou fiche de raccordement; ne pas confondre avec 160 A estimés par SPARK."
+site_tariff,site,"Contrat, frais réseau, taxes et pointe contractuels 2024",,non_verifie,Obtenir factures et contrat; utiliser séparément un tarif de simulation si besoin.
+maintenance,3 équipements : EPI_PumpStation1;EPI_PumpStation2;EPI_PickAndPlace,Plan de maintenance et arrêts 2024,,non_verifie,Obtenir GMAO ou établir des indisponibilités purement synthétiques.
+machine_power_profiles,3 équipements : EPI_PumpStation1;EPI_PumpStation2;EPI_PickAndPlace,Puissances EPI par état de marche et puissances maximales mesurées,,non_verifie,Demander synthèse de l’équipe séries temporelles après contrôle qualité; ne pas déduire de V×A sans facteur de puissance.
+raw_files_2024,3 équipements : EPI_PumpStation1;EPI_PumpStation2;EPI_PickAndPlace,Présence et validité des fichiers de mesure individuels 2024,,non_verifie,Ouvrir l’archive complète SPARK et vérifier physiquement chaque variable/année.
+pumps_identity,EPI_PumpStation1;EPI_PumpStation2,"Fabricant, modèle et affectation des deux circuits",,non_verifie,Obtenir plaques signalétiques et schémas hydrauliques.
+external_file_bytes,site,"Séries prix, météo, carbone et jours fériés dans l’archive reçue",,non_verifie,Télécharger les fichiers exogènes déclarés dans l’archive SPARK complète.

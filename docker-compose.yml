@@ -1,0 +1,50 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: rag_assistant
+      POSTGRES_USER: rag
+      POSTGRES_PASSWORD: change-me
+    ports:
+      - "5432:5432"
+    volumes:
+      - rag_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rag -d rag_assistant"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    image: ${ASSISTANT_IMAGE:-epi-rag-assistant:local}
+    build:
+      context: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://rag:change-me@db:5432/rag_assistant
+      ASSISTANT_API_KEY: ${ASSISTANT_API_KEY:?ASSISTANT_API_KEY must be set}
+      RAG_CORPUS_DIR: /app/data/rag_epi_3_machines
+      RAG_TOP_K: ${RAG_TOP_K:-6}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-intfloat/multilingual-e5-small}
+      EMBEDDING_DEVICE: ${EMBEDDING_DEVICE:-cpu}
+      LLM_BASE_URL: ${LLM_BASE_URL:?LLM_BASE_URL must be set}
+      LLM_MODEL: ${LLM_MODEL:?LLM_MODEL must be set}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_TIMEOUT_SECONDS: ${LLM_TIMEOUT_SECONDS:-60}
+      FORECAST_RESULTS_PATH: /app/forecast_results.json
+      FORECAST_DEFAULT_UNIT: ${FORECAST_DEFAULT_UNIT:-W}
+      FORECAST_NAIVE_TIMEZONE: ${FORECAST_NAIVE_TIMEZONE:-UTC}
+      RUN_MIGRATIONS: ${RUN_MIGRATIONS:-true}
+      RAG_INGEST_ON_STARTUP: ${RAG_INGEST_ON_STARTUP:-false}
+      HF_HOME: /opt/huggingface
+    ports:
+      - "8000:8000"
+    volumes:
+      - rag_model_cache:/opt/huggingface
+    restart: unless-stopped
+
+volumes:
+  rag_postgres_data:
+  rag_model_cache:

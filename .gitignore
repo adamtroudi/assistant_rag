@@ -1,0 +1,10 @@
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+.coverage
+htmlcov/
+*.py[cod]
+*.egg-info/
+forecast_results.json
+rag_epi_3_machines_documents.zip

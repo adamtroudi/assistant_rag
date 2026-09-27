@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "site": "EPI",
+  "year": 2024,
+  "retrieval_corpus": "rag_chunks.jsonl",
+  "text_field": "text",
+  "id_field": "chunk_id",
+  "metadata_fields": [
+    "doc_path",
+    "machine_id",
+    "site",
+    "year",
+    "topic",
+    "origin",
+    "confidence",
+    "applicability",
+    "source_refs"
+  ],
+  "recommended_filters": {
+    "site": "EPI",
+    "year": 2024
+  },
+  "citation_fields": [
+    "source_refs.source_id",
+    "source_refs.url",
+    "source_refs.archive_path",
+    "source_refs.locator"
+  ],
+  "local_timezone": "Europe/Berlin",
+  "series_timezone": "UTC",
+  "results_inputs": [],
+  "note": "Index de trois équipements EPI; les résultats XGBoost seront validés puis injectés séparément, pas indexés comme documents.",
+  "supported_machine_ids": [
+    "EPI_PumpStation1",
+    "EPI_PumpStation2",
+    "EPI_PickAndPlace"
+  ]
+}

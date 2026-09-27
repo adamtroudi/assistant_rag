@@ -1,0 +1,764 @@
+{
+  "schema_version": "1.0",
+  "site": "EPI",
+  "reference_year": 2024,
+  "local_timezone": "Europe/Berlin",
+  "catalogue_created_utc": "2026-09-27T11:05:52+00:00",
+  "provenance_categories": [
+    "verifie_dans_spark",
+    "source_externe",
+    "calcule_a_partir_de_donnees_verifiees",
+    "synthetique"
+  ],
+  "scope_note": "Sous-ensemble EPI limité à PumpStation1, PumpStation2 et PickAndPlace. Aucune série temporelle brute ni règle réelle de fonctionnement traitée. Présence physique des fichiers de mesure 2024 à vérifier.",
+  "measurement_caveats": [
+    "Une ligne 2024 dans les métadonnées ne prouve pas que le fichier de mesure a été livré ou qu'il est exploitable.",
+    "Les courants des deux pompes sont estimés par les auteurs de SPARK, pas fournis par un constructeur.",
+    "Aucun lien de précédence de production entre stations de pompage et PickAndPlace n'a été vérifié."
+  ],
+  "sources": [
+    {
+      "id": "spark_article",
+      "title": "High-resolution energy data from a sustainable industrial production area in Karlsruhe",
+      "publisher": "KIT / Scientific Data",
+      "url": "https://publikationen.bibliothek.kit.edu/1000191069/176128394",
+      "relevant_pages": [
+        3,
+        4,
+        5,
+        7,
+        9,
+        10
+      ],
+      "type": "publication_primaire",
+      "verification_scope": "donnees_publiees_dans_l_article_non_reverifiees_dans_l_archive"
+    },
+    {
+      "id": "spark_dataset",
+      "title": "SPARK — jeu de données nettoyé",
+      "publisher": "KIT RADAR4KIT",
+      "url": "https://radar.kit.edu/radar/en/dataset/bjdg3m3rg5jv3skk",
+      "relevant_pages": null,
+      "type": "archive_non_consultee_dans_ce_fichier"
+    },
+    {
+      "id": "spark_metadata_machine",
+      "title": "00machine_details.json",
+      "publisher": "SPARK — métadonnées fournies par l’utilisateur",
+      "url": null,
+      "archive_path": "00meta_data/00machine_details.json",
+      "relevant_pages": null,
+      "type": "metadonnees_du_dataset"
+    },
+    {
+      "id": "spark_metadata_availability",
+      "title": "02data_availability.csv",
+      "publisher": "SPARK — métadonnées fournies par l’utilisateur",
+      "url": null,
+      "archive_path": "00meta_data/02data_availability.csv",
+      "relevant_pages": null,
+      "type": "metadonnees_du_dataset"
+    }
+  ],
+  "machines": [
+    {
+      "id": "EPI_PickAndPlace",
+      "site": "EPI",
+      "identity_source_id": "spark_article",
+      "category": {
+        "value": "production",
+        "unit": null,
+        "origin": "calcule_a_partir_de_donnees_verifiees",
+        "source_id": "spark_article",
+        "source_locator": "pp. 3–5, rôle déduit de la fonction décrite",
+        "confidence": "elevee",
+        "note": null
+      },
+      "identity": {
+        "manufacturer": {
+          "value": "ESSEMTEC",
+          "unit": null,
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_article",
+          "source_locator": "p. 4, tableau 2",
+          "confidence": "elevee",
+          "note": null
+        },
+        "model": {
+          "value": "Paraquda PARA-4",
+          "unit": null,
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_article",
+          "source_locator": "p. 4, tableau 2",
+          "confidence": "elevee",
+          "note": null
+        },
+        "industrial_function": {
+          "value": "Placement automatisé de composants sur substrats.",
+          "unit": null,
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_article",
+          "source_locator": "pp. 4–5, descriptions des équipements",
+          "confidence": "elevee",
+          "note": null
+        }
+      },
+      "electrical": {
+        "supply_phases": {
+          "value": 1,
+          "unit": "phase",
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_article",
+          "source_locator": "p. 7, tableau 3",
+          "confidence": "elevee",
+          "note": null
+        },
+        "supply_voltage_v": {
+          "value": 230,
+          "unit": "V",
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_article",
+          "source_locator": "p. 7, tableau 3",
+          "confidence": "elevee",
+          "note": null
+        },
+        "published_rated_current_a": {
+          "value": 5,
+          "unit": "A",
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_article",
+          "source_locator": "p. 7, tableau 3",
+          "confidence": "elevee",
+          "note": "Courant indiqué par SPARK; ne pas interpréter comme la puissance consommée."
+        },
+        "manufacturer_connected_load_kw": {
+          "value": null,
+          "unit": "kW",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Puissance de raccordement de ce modèle non vérifiée auprès du fabricant."
+        },
+        "manufacturer_max_input_power_kw": {
+          "value": null,
+          "unit": "kW",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Puissance maximale électrique non vérifiée auprès du fabricant."
+        },
+        "measured_operating_power_kw": {
+          "value": null,
+          "unit": "kW",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "À renseigner par l’équipe chargée des séries de puissance; aucune mesure brute traitée ici."
+        }
+      },
+      "process_limits": {
+        "maximum_temperature_c": {
+          "value": null,
+          "unit": "°C",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Limite du modèle non vérifiée."
+        },
+        "maximum_pressure_bar": {
+          "value": null,
+          "unit": "bar",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Limite du modèle non vérifiée ou non applicable."
+        }
+      },
+      "operation": {
+        "cycle_duration_min": {
+          "value": null,
+          "unit": "min",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "La durée dépend du programme et du produit; non publiée pour EPI."
+        },
+        "startup_duration_min": {
+          "value": null,
+          "unit": "min",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Démarrage et montée en régime à définir pour le scénario."
+        },
+        "minimum_run_duration_min": {
+          "value": null,
+          "unit": "min",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Contrainte de marche minimale non vérifiée."
+        },
+        "shutdown_duration_min": {
+          "value": null,
+          "unit": "min",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Contrainte d’arrêt non vérifiée."
+        },
+        "maintenance_interval_h": {
+          "value": null,
+          "unit": "h",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Plan de maintenance du site non publié."
+        }
+      },
+      "model_specific_specs": {},
+      "measurement_2024": {
+        "published_number_of_years": {
+          "value": 7,
+          "unit": "an",
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_metadata_machine",
+          "source_locator": "EPI_PickAndPlace.num_years",
+          "confidence": "elevee",
+          "note": null
+        },
+        "year_2024_power_file_present": {
+          "value": null,
+          "unit": null,
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Le ZIP fourni ne contient pas les fichiers de mesures; contrôler le fichier dans l’archive SPARK."
+        },
+        "year_2024_valid_data_fraction": {
+          "value": 0.8302301533090468,
+          "unit": "fraction",
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_metadata_availability",
+          "source_locator": "machine=EPI_PickAndPlace; measurement=P_total; year=2024; csv_index=4762",
+          "confidence": "elevee",
+          "note": "Taux publié dans les métadonnées, non recalculé sur les séries brutes."
+        },
+        "years_listed_in_machine_metadata": {
+          "value": [
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "unit": "année",
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_metadata_machine",
+          "source_locator": "EPI_PickAndPlace.years",
+          "confidence": "elevee",
+          "note": "Années listées dans les métadonnées, distinctes de la vérification des fichiers de mesures."
+        },
+        "power_measurement_id": {
+          "value": "P_total",
+          "unit": null,
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_metadata_machine",
+          "source_locator": "EPI_PickAndPlace.measurements",
+          "confidence": "elevee",
+          "note": "Nom de variable listé; aucune donnée brute importée dans ce catalogue."
+        },
+        "year_2024_power_measurement_listed": {
+          "value": true,
+          "unit": null,
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_metadata_availability",
+          "source_locator": "machine=EPI_PickAndPlace; measurement=P_total; year=2024",
+          "confidence": "elevee",
+          "note": "Ligne(s) de métadonnées uniquement; le fichier de mesure n’est pas dans le ZIP."
+        }
+      },
+      "site_specific_constraints_verified": false,
+      "optimization_readiness": "catalogue_seul_puissance_et_contraintes_a_completer"
+    },
+    {
+      "id": "EPI_PumpStation1",
+      "site": "EPI",
+      "identity_source_id": "spark_article",
+      "category": {
+        "value": "auxiliaire",
+        "unit": null,
+        "origin": "calcule_a_partir_de_donnees_verifiees",
+        "source_id": "spark_article",
+        "source_locator": "pp. 3–5, rôle déduit de la fonction décrite",
+        "confidence": "elevee",
+        "note": null
+      },
+      "identity": {
+        "manufacturer": {
+          "value": null,
+          "unit": null,
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Fabricant non indiqué pour cet identifiant dans le tableau 2."
+        },
+        "model": {
+          "value": null,
+          "unit": null,
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Modèle non indiqué pour cet identifiant dans le tableau 2."
+        },
+        "industrial_function": {
+          "value": "Station de pompage pour le transport de liquides de procédé.",
+          "unit": null,
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_article",
+          "source_locator": "pp. 4–5, descriptions des équipements",
+          "confidence": "elevee",
+          "note": null
+        }
+      },
+      "electrical": {
+        "supply_phases": {
+          "value": 3,
+          "unit": "phase",
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_article",
+          "source_locator": "p. 7, tableau 3",
+          "confidence": "elevee",
+          "note": null
+        },
+        "supply_voltage_v": {
+          "value": 400,
+          "unit": "V",
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_article",
+          "source_locator": "p. 7, tableau 3",
+          "confidence": "elevee",
+          "note": null
+        },
+        "published_rated_current_a": {
+          "value": 34,
+          "unit": "A",
+          "origin": "calcule_a_partir_de_donnees_verifiees",
+          "source_id": "spark_article",
+          "source_locator": "p. 7, tableau 3",
+          "confidence": "moyenne",
+          "note": "Estimation publiée par les auteurs à partir des mesures; pas une valeur nominale constructeur."
+        },
+        "manufacturer_connected_load_kw": {
+          "value": null,
+          "unit": "kW",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Puissance de raccordement de ce modèle non vérifiée auprès du fabricant."
+        },
+        "manufacturer_max_input_power_kw": {
+          "value": null,
+          "unit": "kW",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Puissance maximale électrique non vérifiée auprès du fabricant."
+        },
+        "measured_operating_power_kw": {
+          "value": null,
+          "unit": "kW",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "À renseigner par l’équipe chargée des séries de puissance; aucune mesure brute traitée ici."
+        }
+      },
+      "process_limits": {
+        "maximum_temperature_c": {
+          "value": null,
+          "unit": "°C",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Limite du modèle non vérifiée."
+        },
+        "maximum_pressure_bar": {
+          "value": null,
+          "unit": "bar",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Limite du modèle non vérifiée ou non applicable."
+        }
+      },
+      "operation": {
+        "cycle_duration_min": {
+          "value": null,
+          "unit": "min",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "La durée dépend du programme et du produit; non publiée pour EPI."
+        },
+        "startup_duration_min": {
+          "value": null,
+          "unit": "min",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Démarrage et montée en régime à définir pour le scénario."
+        },
+        "minimum_run_duration_min": {
+          "value": null,
+          "unit": "min",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Contrainte de marche minimale non vérifiée."
+        },
+        "shutdown_duration_min": {
+          "value": null,
+          "unit": "min",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Contrainte d’arrêt non vérifiée."
+        },
+        "maintenance_interval_h": {
+          "value": null,
+          "unit": "h",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Plan de maintenance du site non publié."
+        }
+      },
+      "model_specific_specs": {},
+      "measurement_2024": {
+        "published_number_of_years": {
+          "value": 7,
+          "unit": "an",
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_metadata_machine",
+          "source_locator": "EPI_PumpStation1.num_years",
+          "confidence": "elevee",
+          "note": null
+        },
+        "year_2024_power_file_present": {
+          "value": null,
+          "unit": null,
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Le ZIP fourni ne contient pas les fichiers de mesures; contrôler le fichier dans l’archive SPARK."
+        },
+        "year_2024_valid_data_fraction": {
+          "value": 0.6831325263104635,
+          "unit": "fraction",
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_metadata_availability",
+          "source_locator": "machine=EPI_PumpStation1; measurement=P_total; year=2024; csv_index=5438",
+          "confidence": "elevee",
+          "note": "Taux publié dans les métadonnées, non recalculé sur les séries brutes."
+        },
+        "years_listed_in_machine_metadata": {
+          "value": [
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "unit": "année",
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_metadata_machine",
+          "source_locator": "EPI_PumpStation1.years",
+          "confidence": "elevee",
+          "note": "Années listées dans les métadonnées, distinctes de la vérification des fichiers de mesures."
+        },
+        "power_measurement_id": {
+          "value": "P_total",
+          "unit": null,
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_metadata_machine",
+          "source_locator": "EPI_PumpStation1.measurements",
+          "confidence": "elevee",
+          "note": "Nom de variable listé; aucune donnée brute importée dans ce catalogue."
+        },
+        "year_2024_power_measurement_listed": {
+          "value": true,
+          "unit": null,
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_metadata_availability",
+          "source_locator": "machine=EPI_PumpStation1; measurement=P_total; year=2024",
+          "confidence": "elevee",
+          "note": "Ligne(s) de métadonnées uniquement; le fichier de mesure n’est pas dans le ZIP."
+        }
+      },
+      "site_specific_constraints_verified": false,
+      "optimization_readiness": "catalogue_seul_puissance_et_contraintes_a_completer"
+    },
+    {
+      "id": "EPI_PumpStation2",
+      "site": "EPI",
+      "identity_source_id": "spark_article",
+      "category": {
+        "value": "auxiliaire",
+        "unit": null,
+        "origin": "calcule_a_partir_de_donnees_verifiees",
+        "source_id": "spark_article",
+        "source_locator": "pp. 3–5, rôle déduit de la fonction décrite",
+        "confidence": "elevee",
+        "note": null
+      },
+      "identity": {
+        "manufacturer": {
+          "value": null,
+          "unit": null,
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Fabricant non indiqué pour cet identifiant dans le tableau 2."
+        },
+        "model": {
+          "value": null,
+          "unit": null,
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Modèle non indiqué pour cet identifiant dans le tableau 2."
+        },
+        "industrial_function": {
+          "value": "Station de pompage secondaire; circuits ou redondance exacts non établis.",
+          "unit": null,
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_article",
+          "source_locator": "pp. 4–5, descriptions des équipements",
+          "confidence": "elevee",
+          "note": null
+        }
+      },
+      "electrical": {
+        "supply_phases": {
+          "value": 3,
+          "unit": "phase",
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_article",
+          "source_locator": "p. 7, tableau 3",
+          "confidence": "elevee",
+          "note": null
+        },
+        "supply_voltage_v": {
+          "value": 400,
+          "unit": "V",
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_article",
+          "source_locator": "p. 7, tableau 3",
+          "confidence": "elevee",
+          "note": null
+        },
+        "published_rated_current_a": {
+          "value": 36,
+          "unit": "A",
+          "origin": "calcule_a_partir_de_donnees_verifiees",
+          "source_id": "spark_article",
+          "source_locator": "p. 7, tableau 3",
+          "confidence": "moyenne",
+          "note": "Estimation publiée par les auteurs à partir des mesures; pas une valeur nominale constructeur."
+        },
+        "manufacturer_connected_load_kw": {
+          "value": null,
+          "unit": "kW",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Puissance de raccordement de ce modèle non vérifiée auprès du fabricant."
+        },
+        "manufacturer_max_input_power_kw": {
+          "value": null,
+          "unit": "kW",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Puissance maximale électrique non vérifiée auprès du fabricant."
+        },
+        "measured_operating_power_kw": {
+          "value": null,
+          "unit": "kW",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "À renseigner par l’équipe chargée des séries de puissance; aucune mesure brute traitée ici."
+        }
+      },
+      "process_limits": {
+        "maximum_temperature_c": {
+          "value": null,
+          "unit": "°C",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Limite du modèle non vérifiée."
+        },
+        "maximum_pressure_bar": {
+          "value": null,
+          "unit": "bar",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Limite du modèle non vérifiée ou non applicable."
+        }
+      },
+      "operation": {
+        "cycle_duration_min": {
+          "value": null,
+          "unit": "min",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "La durée dépend du programme et du produit; non publiée pour EPI."
+        },
+        "startup_duration_min": {
+          "value": null,
+          "unit": "min",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Démarrage et montée en régime à définir pour le scénario."
+        },
+        "minimum_run_duration_min": {
+          "value": null,
+          "unit": "min",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Contrainte de marche minimale non vérifiée."
+        },
+        "shutdown_duration_min": {
+          "value": null,
+          "unit": "min",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Contrainte d’arrêt non vérifiée."
+        },
+        "maintenance_interval_h": {
+          "value": null,
+          "unit": "h",
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Plan de maintenance du site non publié."
+        }
+      },
+      "model_specific_specs": {},
+      "measurement_2024": {
+        "published_number_of_years": {
+          "value": 7,
+          "unit": "an",
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_metadata_machine",
+          "source_locator": "EPI_PumpStation2.num_years",
+          "confidence": "elevee",
+          "note": null
+        },
+        "year_2024_power_file_present": {
+          "value": null,
+          "unit": null,
+          "origin": null,
+          "source_id": null,
+          "source_locator": null,
+          "confidence": "non_verifie",
+          "note": "Le ZIP fourni ne contient pas les fichiers de mesures; contrôler le fichier dans l’archive SPARK."
+        },
+        "year_2024_valid_data_fraction": {
+          "value": 0.6831330006577616,
+          "unit": "fraction",
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_metadata_availability",
+          "source_locator": "machine=EPI_PumpStation2; measurement=P_total; year=2024; csv_index=6852",
+          "confidence": "elevee",
+          "note": "Taux publié dans les métadonnées, non recalculé sur les séries brutes."
+        },
+        "years_listed_in_machine_metadata": {
+          "value": [
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "unit": "année",
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_metadata_machine",
+          "source_locator": "EPI_PumpStation2.years",
+          "confidence": "elevee",
+          "note": "Années listées dans les métadonnées, distinctes de la vérification des fichiers de mesures."
+        },
+        "power_measurement_id": {
+          "value": "P_total",
+          "unit": null,
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_metadata_machine",
+          "source_locator": "EPI_PumpStation2.measurements",
+          "confidence": "elevee",
+          "note": "Nom de variable listé; aucune donnée brute importée dans ce catalogue."
+        },
+        "year_2024_power_measurement_listed": {
+          "value": true,
+          "unit": null,
+          "origin": "verifie_dans_spark",
+          "source_id": "spark_metadata_availability",
+          "source_locator": "machine=EPI_PumpStation2; measurement=P_total; year=2024",
+          "confidence": "elevee",
+          "note": "Ligne(s) de métadonnées uniquement; le fichier de mesure n’est pas dans le ZIP."
+        }
+      },
+      "site_specific_constraints_verified": false,
+      "optimization_readiness": "catalogue_seul_puissance_et_contraintes_a_completer"
+    }
+  ]
+}
